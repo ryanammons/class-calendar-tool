@@ -25,8 +25,9 @@ class SchoolClassesController extends Controller
     public function create()
     {
         abort_if(Gate::denies('school_class_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $schoolClass = new SchoolClass();
 
-        return view('admin.schoolClasses.create');
+        return view('admin.schoolClasses.create', compact('schoolClass'));
     }
 
     public function store(StoreSchoolClassRequest $request)

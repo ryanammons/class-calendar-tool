@@ -19,6 +19,9 @@ class SchoolClass extends Model
 
     protected $fillable = [
         'name',
+        'class_number',
+        'section',
+        'color',
         'created_at',
         'updated_at',
         'deleted_at',

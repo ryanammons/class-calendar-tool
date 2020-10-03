@@ -35,8 +35,6 @@ class Lesson extends Model
         '3' => 'Wednesday',
         '4' => 'Thursday',
         '5' => 'Friday',
-        '6' => 'Saturday',
-        '7' => 'Sunday',
     ];
 
     public function getDifferenceAttribute()

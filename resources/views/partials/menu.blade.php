@@ -74,7 +74,7 @@
                         <i class="fa-fw fas fa-school nav-icon">
 
                         </i>
-                        {{ trans('cruds.schoolClass.title') }}
+                        Courses and Sections
                     </a>
                 </li>
             @endcan
@@ -84,7 +84,7 @@
                         <i class="fa-fw fas fa-clock nav-icon">
 
                         </i>
-                        {{ trans('cruds.lesson.title') }}
+                        Class Meetings
                     </a>
                 </li>
             @endcan

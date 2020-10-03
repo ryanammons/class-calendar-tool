@@ -4,14 +4,14 @@
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route("admin.lessons.create") }}">
-                {{ trans('global.add') }} {{ trans('cruds.lesson.title_singular') }}
+                {{ trans('global.add') }} Class Meeting
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.lesson.title_singular') }} {{ trans('global.list') }}
+        Class Meeting {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
@@ -54,14 +54,14 @@
                             <td>
                                 {{ $lesson->id ?? '' }}
                             </td>
-                            <td>
-                                {{ $lesson->class->name ?? '' }}
+                            <td style="background-color: {{ $lesson->class->color ?? 'gray' }}">
+                                {{ $lesson->class->name ?? '' }} ({{ $lesson->class->section ?? ''  }})
                             </td>
                             <td>
                                 {{ $lesson->teacher->name ?? '' }}
                             </td>
                             <td>
-                                {{ $lesson->weekday ?? '' }}
+                                {{ $lesson->weekday ?? '' }} - {{ \App\Lesson::WEEK_DAYS[$lesson->weekday]  }}
                             </td>
                             <td>
                                 {{ $lesson->start_time ?? '' }}
@@ -70,11 +70,11 @@
                                 {{ $lesson->end_time ?? '' }}
                             </td>
                             <td>
-                                @can('lesson_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.lessons.show', $lesson->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
+{{--                                @can('lesson_show')--}}
+{{--                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.lessons.show', $lesson->id) }}">--}}
+{{--                                        {{ trans('global.view') }}--}}
+{{--                                    </a>--}}
+{{--                                @endcan--}}
 
                                 @can('lesson_edit')
                                     <a class="btn btn-xs btn-info" href="{{ route('admin.lessons.edit', $lesson->id) }}">

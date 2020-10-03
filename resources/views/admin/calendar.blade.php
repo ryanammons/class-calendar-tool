@@ -30,9 +30,10 @@
                                     </td>
                                     @foreach($days as $value)
                                         @if (is_array($value))
-                                            <td rowspan="{{ $value['rowspan'] }}" class="align-middle text-center" style="background-color:#f0f0f0">
-                                                {{ $value['class_name'] }}<br>
-                                                Teacher: {{ $value['teacher_name'] }}
+                                            <td rowspan="{{ $value['rowspan'] }}" class="align-middle text-center" style="background-color:{{ $value['bg_color'] ?? '#f0f0f0' }}">
+                                                <b>{{ $value['class_number'] }}-{{ $value['section'] }}</b>
+                                                <br>
+                                                <i>{{ $value['class_name'] }}</i>
                                             </td>
                                         @elseif ($value === 1)
                                             <td></td>

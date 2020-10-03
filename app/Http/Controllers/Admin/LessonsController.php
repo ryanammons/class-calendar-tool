@@ -28,7 +28,7 @@ class LessonsController extends Controller
     {
         abort_if(Gate::denies('lesson_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $classes = SchoolClass::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $classes = SchoolClass::all();
 
         $teachers = User::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -46,7 +46,7 @@ class LessonsController extends Controller
     {
         abort_if(Gate::denies('lesson_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $classes = SchoolClass::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $classes = SchoolClass::all()->prepend(trans('global.pleaseSelect'), '');
 
         $teachers = User::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 

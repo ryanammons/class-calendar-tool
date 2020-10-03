@@ -12,8 +12,8 @@
             <div class="form-group">
                 <label class="required" for="class_id">{{ trans('cruds.lesson.fields.class') }}</label>
                 <select class="form-control select2 {{ $errors->has('class') ? 'is-invalid' : '' }}" name="class_id" id="class_id" required>
-                    @foreach($classes as $id => $class)
-                        <option value="{{ $id }}" {{ old('class_id') == $id ? 'selected' : '' }}>{{ $class }}</option>
+                    @foreach($classes as $class)
+                        <option value="{{ $class->id }}" {{ old('class_id') == $class->id ? 'selected' : '' }}>{{ $class->name." (".$class->section.")" }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('class'))
@@ -39,7 +39,11 @@
             </div>
             <div class="form-group">
                 <label class="required" for="weekday">{{ trans('cruds.lesson.fields.weekday') }}</label>
-                <input class="form-control {{ $errors->has('weekday') ? 'is-invalid' : '' }}" type="number" name="weekday" id="weekday" value="{{ old('weekday') }}" step="1" required>
+                <select class="form-control select2 {{ $errors->has('weekday') ? 'is-invalid' : '' }}" name="weekday" id="weekday" required>
+                    @foreach(\App\Lesson::WEEK_DAYS as $id => $day)
+                        <option value="{{ $id }}" {{ old('weekday') == $id ? 'selected' : '' }}>{{ $id." - ".$day }}</option>
+                    @endforeach
+                </select>
                 @if($errors->has('weekday'))
                     <div class="invalid-feedback">
                         {{ $errors->first('weekday') }}
